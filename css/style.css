@@ -816,11 +816,11 @@ body {
 
 .form-fields {
     display: flex;
-    flex-direction: row; /* Stack fields vertically */
-    gap: 24px; /* Add spacing between fields */
+    flex-direction: row; 
+    gap: 24px;
     width: 100%;
-    max-width: 1320px; /* Match hero form width */
-    margin-bottom: 20px; /* Center the form */
+    max-width: 1320px; 
+    margin-bottom: 20px;
     margin-left: 70px;
 }
 
@@ -953,7 +953,6 @@ body {
     }
 }
 
-/* ==================== Responsive Styles ==================== */
 
 @media (max-width: 1400px) {
   .appointment-box {
