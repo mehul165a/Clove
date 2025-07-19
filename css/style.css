@@ -175,6 +175,8 @@ body {
     background: #E07310;
 }
 
+
+
 .gradient-btn span {
     color: #FFFFFF;
     font-family: 'Figtree', sans-serif;
@@ -812,18 +814,18 @@ body {
     align-items: center;
 }
 
-
 .form-fields {
     display: flex;
-    justify-content: center;
-    gap: 24px;
+    flex-direction: row; /* Stack fields vertically */
+    gap: 24px; /* Add spacing between fields */
     width: 100%;
-    margin-bottom: 20px;
+    max-width: 1320px; /* Match hero form width */
+    margin-bottom: 20px; /* Center the form */
+    margin-left: 70px;
 }
 
 .form-input {
-    flex: 1;
-    width: 416px;
+    width: 512px;
     height: 38px;
     border-radius: 24px;
     border: 1px solid #FFE0C4;
@@ -840,27 +842,32 @@ body {
 }
 
 .captcha-input {
-    flex: 1;
     position: relative;
-    width: 416px;
+    width: 100%;
+    max-width: 416px;
+}
+
+.captcha-input .form-input {
+    width: 100%;
+    padding-right: 88px;
+    border-radius: 24px;
 }
 
 .captcha-code {
     position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    height: 100%;
+    right: 1px;
+    top: 1px; 
+    bottom: 1px; 
     width: 80px;
-    background-color: #462512;
-    color: #FFFFFF;
+    background-color: var(--stroke-dark);
+    color: var(--white);
     font-size: 14px;
     font-weight: 400;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 0 24px 24px 0;
-
+    border: none;
 }
 
 .form-footer {
@@ -946,336 +953,442 @@ body {
     }
 }
 
+/* ==================== Responsive Styles ==================== */
+
 @media (max-width: 1400px) {
-    .dentists-grid {
-        gap: 30px;
-    }
-    .appointment-box {
-        width: 100%;
-        padding: 20px;
-    }
-    .form-input, .captcha-input {
-        width: 30%;
-        min-width: 200px;
-    }
+  .appointment-box {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .dentists-grid {
+    gap: 30px;
+  }
 }
 
 @media (max-width: 1320px) {
-    .treatment-cards {
-        padding: 0 20px;
-    }
+  .treatment-cards {
+    padding: 0 20px;
+  }
 }
 
 @media (max-width: 1300px) {
-    .dentists-grid {
-        gap: 20px;
-    }
-    .dentist-card {
-        width: 280px;
-    }
-    .dentist-image {
-        width: 280px;
-    }
+  .dentist-card {
+    width: 280px;
+  }
+  
+  .dentist-image {
+    width: 280px;
+  }
 }
 
 @media (max-width: 1200px) {
-    .hero {
-        height: auto;
-        padding-bottom: 40px;
-    }
-    .hero__content {
-        flex-direction: column;
-        height: auto;
-        margin-top: 40px;
-    }
-    .hero__left, .hero__right {
-        width: 100%;
-        position: relative;
-        right: auto;
-    }
-    .hero__left {
-        height: 300px;
-    }
-    .hero__gradient-box {
-        width: 80%;
-        padding-left: 60px;
-    }
-    .hero__left img {
-        margin-left: auto;
-        margin-right: 20px;
-    }
-    .consultation-form {
-        margin-top: 20px;
-        width: 100%;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .features-container {
-        max-width: 1000px;
-        height: auto;
-    }
-    .features-content {
-        flex-direction: column;
-        align-items: center;
-    }
-    .features-image {
-        width: 100%;
-        max-width: 461px;
-        height: 350px;
-    }
-    .features-list {
-        width: 100%;
-        max-width: 624px;
-        margin-top: 40px;
-    }
-    .dentist-card {
-        width: 260px;
-    }
-    .dentist-image {
-        width: 260px;
-        height: 180px;
-    }
+  .hero {
+    height: auto;
+    padding-bottom: 40px;
+  }
+  
+  .hero__content {
+    flex-direction: column;
+    height: auto;
+    margin-top: 40px;
+  }
+  
+  .hero__left, .hero__right {
+    width: 100%;
+    position: relative;
+    right: auto;
+  }
+  
+  .hero__left {
+    height: 300px;
+  }
+  
+  .hero__gradient-box {
+    width: 80%;
+    padding-left: 60px;
+  }
+  
+  .hero__left img {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  
+  .consultation-form {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .features-container {
+    max-width: 1000px;
+    height: auto;
+  }
+  
+  .features-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .features-image {
+    width: 100%;
+    max-width: 461px;
+    height: 350px;
+  }
+  
+  .features-list {
+    width: 100%;
+    max-width: 624px;
+    margin-top: 40px;
+  }
+  
+  .dentist-card {
+    width: 260px;
+  }
+  
+  .dentist-image {
+    width: 260px;
+    height: 180px;
+  }
+  
+  .form-fields {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 16px;
+  }
+  
+  .form-input, .captcha-input {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .consultation-btn {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 1100px) {
-    .dentist-card {
-        width: 240px;
-    }
-    .dentist-image {
-        width: 240px;
-    }
+  .dentist-card {
+    width: 240px;
+  }
+  
+  .dentist-image {
+    width: 240px;
+  }
 }
 
 @media (max-width: 1024px) {
-    .form-fields {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .form-input, .captcha-input {
-        width: 45%;
-    }
-    .form-footer {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .terms-agreement {
-        max-width: 100%;
-        text-align: center;
-        justify-content: center;
-    }
+  .form-fields {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .form-footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .terms-agreement {
+    max-width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 1000px) {
-    .dentist-card {
-        width: 220px;
-    }
-    .dentist-image {
-        width: 220px;
-        height: 160px;
-    }
+  .dentist-card {
+    width: 220px;
+  }
+  
+  .dentist-image {
+    width: 220px;
+    height: 160px;
+  }
 }
 
 @media (max-width: 900px) {
-    .dentists-grid {
-        gap: 15px;
-    }
-    .dentist-card {
-        width: 200px;
-    }
-    .dentist-image {
-        width: 200px;
-    }
+  .dentists-grid {
+    gap: 15px;
+  }
+  
+  .dentist-card {
+    width: 200px;
+  }
+  
+  .dentist-image {
+    width: 200px;
+  }
 }
 
 @media (max-width: 768px) {
-    .header__actions {
-        gap: 10px;
-    }
-    .header__contact span {
-        display: none;
-    }
-    .hero__left {
-        height: 200px;
-    }
-    .hero__gradient-box {
-        width: 100%;
-        height: 100px;
-        top: 50px;
-        padding-left: 30px;
-        height: auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-    .gradient-title, .gradient-subtitle {
-        font-size: 14px;
-    }
-    .gradient-btn {
-        width: 180px;
-        height: 36px;
-        font-size: 14px;
-    }
-    .hero-illustration {
-        width: 200px;
-        height: auto;
-        bottom: -180px;
-    }
-    .consultation-form {
-        padding: 20px;
-    }
-    .stats-track {
-        gap: 20px;
-    }
-    .stat-item {
-        font-size: 14px;
-    }
-    .section-heading h2, .why-choose-heading h2, .features-heading h2, .testimonials-heading h2 {
-        font-size: 22px;
-    }
-    .section-heading p, .why-choose-heading p, .features-heading p, .testimonials-heading p {
-        font-size: 18px;
-        padding: 0 20px;
-    }
-    .treatment-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    .treatment-card {
-        width: 100%;
-        max-width: 640px;
-        height: auto;
-        flex-direction: column;
-    }
-    .treatment-card__image {
-        width: 100%;
-        height: 200px;
-    }
-    .treatment-card__details {
-        width: 100%;
-    }
-    .dentists-container {
-        justify-content: flex-start;
-    }
-    .features-image {
-        height: 300px;
-    }
-    .features-list {
-        gap: 30px;
-    }
-    .testimonial-card {
-        width: 200px;
-    }
-    .testimonial-image {
-        width: 200px;
-        height: 250px;
-    }
-    .appointment-section {
-        padding: 40px 0;
-    }
-    .appointment-heading {
-        font-size: 20px;
-    }
+  .header__actions {
+    gap: 10px;
+  }
+  
+  .header__contact span {
+    display: none;
+  }
+  
+  .hero__left {
+    height: 200px;
+  }
+  
+  .hero__gradient-box {
+    width: 100%;
+    height: 100px;
+    top: 50px;
+    padding-left: 30px;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .gradient-title, .gradient-subtitle {
+    font-size: 14px;
+  }
+  
+  .gradient-btn {
+    width: 180px;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  .hero-illustration {
+    width: 200px;
+    height: auto;
+    bottom: -180px;
+  }
+  
+  .consultation-form {
+    padding: 20px;
+  }
+  
+  .stats-track {
+    gap: 20px;
+  }
+  
+  .stat-item {
+    font-size: 14px;
+  }
+  
+  .section-heading h2, 
+  .why-choose-heading h2, 
+  .features-heading h2, 
+  .testimonials-heading h2 {
+    font-size: 22px;
+  }
+  
+  .section-heading p, 
+  .why-choose-heading p, 
+  .features-heading p, 
+  .testimonials-heading p {
+    font-size: 18px;
+    padding: 0 20px;
+  }
+  
+  .treatment-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .treatment-card {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    flex-direction: column;
+  }
+  
+  .treatment-card__image {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .treatment-card__details {
+    width: 100%;
+  }
+  
+  .dentists-container {
+    justify-content: flex-start;
+  }
+  
+  .features-image {
+    height: 300px;
+  }
+  
+  .features-list {
+    gap: 30px;
+  }
+  
+  .testimonial-card {
+    width: 200px;
+  }
+  
+  .testimonial-image {
+    width: 200px;
+    height: 250px;
+  }
+  
+  .appointment-section {
+    padding: 40px 0;
+  }
+  
+  .appointment-heading {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 480px) {
-    .header__logo img {
-        width: 100px;
-    }
-    .header__action-btn span {
-        font-size: 14px;
-    }
-    .consultation-form h2 {
-        font-size: 18px;
-        width: 100%;
-    }
-    .consultation-form p {
-        font-size: 14px;
-    }
-    .hero__left img {
-        width: 150px;
-        margin-bottom: -80px;
-    }
-    .hero__gradient-box {
-        padding-left: 20px;
-        left: 0;
-    }
-    .gradient-content {
-        width: 100%;
-    }
-    .hero-illustration {
-        display: none;
-    }
-    .stats-track {
-        gap: 15px;
-        animation-duration: 15s;
-    }
-    .stat-item {
-        gap: 8px;
-    }
-    .stat-item img {
-        height: 18px;
-    }
-    .treatments-section {
-        padding: 40px 0;
-    }
-    .section-heading h2, .why-choose-heading h2, .features-heading h2, .testimonials-heading h2 {
-        font-size: 20px;
-    }
-    .section-heading p, .why-choose-heading p, .features-heading p, .testimonials-heading p {
-        font-size: 16px;
-    }
-    .treatment-card {
-        border-radius: 4px;
-    }
-    .treatment-card__image {
-        height: 160px;
-    }
-    .treatment-card__details {
-        padding: 16px;
-    }
-    .why-choose-section {
-        padding: 40px 0;
-    }
-    .dentist-info {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-    }
-    .features-section {
-        padding: 40px 0;
-    }
-    .features-image {
-        height: 250px;
-        border-radius: 12px;
-    }
-    .features-list {
-        gap: 20px;
-    }
-    .feature-text {
-        font-size: 15px;
-    }
-    .testimonials-section {
-        padding: 40px 0;
-    }
-    .testimonial-card {
-        width: 180px;
-    }
-    .testimonial-image {
-        width: 180px;
-        height: 220px;
-    }
-    .testimonials-track {
-        gap: 16px;
-    }
-    .appointment-heading {
-        font-size: 18px;
-    }
-    .terms-agreement label {
-        font-size: 11px;
-    }
-    .consultation-btn {
-        width: 100%;
-        margin-left: 0;
-    }
+  .header__logo img {
+    width: 100px;
+  }
+  
+  .header__action-btn span {
+    font-size: 14px;
+  }
+  
+  .consultation-form h2 {
+    font-size: 18px;
+    width: 100%;
+  }
+  
+  .consultation-form p {
+    font-size: 14px;
+  }
+  
+  .hero__left img {
+    width: 150px;
+    margin-bottom: -80px;
+  }
+  
+  .hero__gradient-box {
+    padding-left: 20px;
+    left: 0;
+  }
+  
+  .gradient-content {
+    width: 100%;
+  }
+  
+  .hero-illustration {
+    display: none;
+  }
+  
+  .stats-track {
+    gap: 15px;
+    animation-duration: 15s;
+  }
+  
+  .stat-item {
+    gap: 8px;
+  }
+  
+  .stat-item img {
+    height: 18px;
+  }
+  
+  .treatments-section {
+    padding: 40px 0;
+  }
+  
+  .section-heading h2, 
+  .why-choose-heading h2, 
+  .features-heading h2, 
+  .testimonials-heading h2 {
+    font-size: 20px;
+  }
+  
+  .section-heading p, 
+  .why-choose-heading p, 
+  .features-heading p, 
+  .testimonials-heading p {
+    font-size: 16px;
+  }
+  
+  .treatment-card {
+    border-radius: 4px;
+  }
+  
+  .treatment-card__image {
+    height: 160px;
+  }
+  
+  .treatment-card__details {
+    padding: 16px;
+  }
+  
+  .why-choose-section {
+    padding: 40px 0;
+  }
+  
+  .dentist-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .features-section {
+    padding: 40px 0;
+  }
+  
+  .features-image {
+    height: 250px;
+    border-radius: 12px;
+  }
+  
+  .features-list {
+    gap: 20px;
+  }
+  
+  .feature-text {
+    font-size: 15px;
+  }
+  
+  .testimonials-section {
+    padding: 40px 0;
+  }
+  
+  .testimonial-card {
+    width: 180px;
+  }
+  
+  .testimonial-image {
+    width: 180px;
+    height: 220px;
+  }
+  
+  .testimonials-track {
+    gap: 16px;
+  }
+  
+  .appointment-heading {
+    font-size: 18px;
+  }
+  
+  .terms-agreement label {
+    font-size: 11px;
+  }
+  
+  .consultation-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .form-fields {
+    margin-left: 0;
+  }
+  
+  .captcha-input {
+    max-width: 100%;
+  }
+  
+  .captcha-code {
+    width: 70px;
+  }
+  
+  .captcha-input .form-input {
+    padding-right: 78px;
+  }
 }
