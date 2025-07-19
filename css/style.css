@@ -817,11 +817,11 @@ body {
 .form-fields {
     display: flex;
     flex-direction: row; 
-    gap: 24px;
+    gap: 20px;
     width: 100%;
-    max-width: 1320px; 
+    max-width: 1115px; 
     margin-bottom: 20px;
-    margin-left: 70px;
+    /* margin-left: 50px; */
 }
 
 .form-input {
